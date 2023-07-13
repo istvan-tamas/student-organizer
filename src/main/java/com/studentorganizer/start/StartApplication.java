@@ -1,13 +1,13 @@
-package organizer;
+package com.studentorganizer.start;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StudentOrganizer {
+public class StartApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentOrganizer.class, args);
+		SpringApplication.run(StartApplication.class, args);
 	}
 
 }
