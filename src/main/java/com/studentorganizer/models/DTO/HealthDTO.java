@@ -1,4 +1,4 @@
-package com.studentorganizer.model.DTO;
+package com.studentorganizer.models.DTO;
 
 import java.util.Date;
 import java.sql.Timestamp;

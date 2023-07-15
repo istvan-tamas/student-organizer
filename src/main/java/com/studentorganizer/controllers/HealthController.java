@@ -6,7 +6,6 @@ import com.studentorganizer.model.DTO.HealthDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-
 @RestController
 public class HealthController {
     @GetMapping("/health")
