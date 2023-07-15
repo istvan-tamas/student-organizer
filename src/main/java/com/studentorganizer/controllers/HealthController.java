@@ -2,8 +2,6 @@ package com.studentorganizer.controllers;
 import org.springframework.web.bind.annotation.RestController;
 import com.studentorganizer.services.HealthService;
 
-import org.springframework.ui.Model;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -15,8 +13,7 @@ public class HealthController {
     private HealthService healthService;
 
     @GetMapping("/health")
-    public String status(String health, Model model){
-        model.addAttribute("health", healthService.toString());
-        return "health";
+    public String status(){
+        return healthService.returnStatus();
     }
 }
