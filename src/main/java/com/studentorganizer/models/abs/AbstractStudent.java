@@ -1,4 +1,4 @@
-package com.studentorganizer.model.abs;
+package com.studentorganizer.models.abs;
 
 public abstract class AbstractStudent {
     

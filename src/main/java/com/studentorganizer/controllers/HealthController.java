@@ -1,7 +1,7 @@
-package com.studentorganizer.controller;
+package com.studentorganizer.controllers;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.studentorganizer.model.DTO.HealthDTO;
+import com.studentorganizer.models.DTO.HealthDTO;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
