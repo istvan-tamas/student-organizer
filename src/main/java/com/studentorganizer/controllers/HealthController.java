@@ -1,15 +1,22 @@
 package com.studentorganizer.controllers;
 import org.springframework.web.bind.annotation.RestController;
+import com.studentorganizer.services.HealthService;
 
-import com.studentorganizer.models.DTO.HealthDTO;
+import org.springframework.ui.Model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
 public class HealthController {
+
+    @Autowired
+    private HealthService healthService;
+
     @GetMapping("/health")
-    HealthDTO returnStatus(){
-        return new HealthDTO();
+    public String status(String health, Model model){
+        model.addAttribute("health", healthService.toString());
+        return "health";
     }
 }

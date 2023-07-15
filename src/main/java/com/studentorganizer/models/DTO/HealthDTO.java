@@ -19,5 +19,41 @@ public class HealthDTO {
         this.uuid = UUID.randomUUID();
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Timestamp getTimestamp() {
+        return this.timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public UUID getUuid() {
+        return this.uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " status='" + getStatus() + "'" +
+            ", timestamp='" + getTimestamp() + "'" +
+            ", uuid='" + getUuid() + "'" +
+            "}";
+    }
+
     
 }
