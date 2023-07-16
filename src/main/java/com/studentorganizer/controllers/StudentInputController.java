@@ -10,7 +10,7 @@ import com.studentorganizer.models.DTO.StudentDTO;
 public class StudentInputController {
     @GetMapping("/student-input")
     public String inputForm(Model model){
-        model.addAttribute("student-input", new StudentDTO());
+        model.addAttribute("inputparams", new StudentDTO());
         return "student-input";
     }
 }
