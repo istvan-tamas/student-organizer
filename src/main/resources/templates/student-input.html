@@ -6,21 +6,5 @@
 	</head>
 	<body>
 		<h1>Form</h1>
-		<form
-			action="#"
-			th:action="@{/student-input}"
-			th:object="${inputparams}"
-			method="post"
-		>
-			<p>neptune-code: <input type="text" th:field="*{neptune}" /></p>
-			<p>First name: <input type="text" th:field="*{firstName}" /></p>
-			<p>Last name: <input type="text" th:field="*{lastName}" /></p>
-			<p>Major: <input type="text" th:field="*{major}" /></p>
-			<p>education type: <input type="text" th:field="*{educationType}" /></p>
-			<p>
-				<input type="submit" value="Submit" />
-				<input type="reset" value="Reset" />
-			</p>
-		</form>
 	</body>
 </html>
