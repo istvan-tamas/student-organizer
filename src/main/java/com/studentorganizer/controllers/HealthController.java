@@ -1,5 +1,6 @@
 package com.studentorganizer.controllers;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.studentorganizer.services.HealthService;
 
 import org.springframework.beans.factory.annotation.Autowired;
