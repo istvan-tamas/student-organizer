@@ -8,17 +8,6 @@ public class StudentDTO {
     private String major;
     private String educationType;
 
-    public StudentDTO() {
-    }
-
-    public StudentDTO(String neptune, String firstName, String lastName, String major, String educationType) {
-        this.neptune = neptune;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.major = major;
-        this.educationType = educationType;
-    }
-
     public String getNeptune() {
         return this.neptune;
     }
@@ -59,46 +48,6 @@ public class StudentDTO {
         this.educationType = educationType;
     }
 
-    public StudentDTO neptune(String neptune) {
-        setNeptune(neptune);
-        return this;
-    }
-
-    public StudentDTO firstName(String firstName) {
-        setFirstName(firstName);
-        return this;
-    }
-
-    public StudentDTO lastName(String lastName) {
-        setLastName(lastName);
-        return this;
-    }
-
-    public StudentDTO major(String major) {
-        setMajor(major);
-        return this;
-    }
-
-    public StudentDTO educationType(String educationType) {
-        setEducationType(educationType);
-        return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof StudentDTO)) {
-            return false;
-        }
-        StudentDTO studentDTO = (StudentDTO) o;
-        return Objects.equals(neptune, studentDTO.neptune) && Objects.equals(firstName, studentDTO.firstName) && Objects.equals(lastName, studentDTO.lastName) && Objects.equals(major, studentDTO.major) && Objects.equals(educationType, studentDTO.educationType);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(neptune, firstName, lastName, major, educationType);
-    }
 
     @Override
     public String toString() {

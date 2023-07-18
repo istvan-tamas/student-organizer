@@ -140,7 +140,12 @@
 	<body>
 		<div class="main-block">
 			<h1>Student registration</h1>
-			<form action="/">
+			<form
+				th:object="${input}"
+				th:action="@{/student-submit}"
+				action="#"
+				method="post"
+			>
 				<hr />
 				<input
 					type="text"

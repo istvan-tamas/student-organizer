@@ -1,19 +1,26 @@
 package com.studentorganizer.controllers;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
 
-import com.studentorganizer.services.LogService;
+import com.studentorganizer.models.DTO.StudentDTO;
 
 
 @Controller
 public class StudentInputController {
     
-    @Autowired
-    private LogService logService;
-    
     @GetMapping("/student-input")
-    public void status() {
-        logService.log();
+    public String addStudentForm(Model model) {
+        model.addAttribute("input", new StudentDTO());
+        return "student-input";
     }
+
+    @PostMapping("/greeting")
+        public String studentSubmit(@ModelAttribute StudentDTO student, Model model) {
+        model.addAttribute("student-input", student);
+        return "result";
+  }
+
 }
