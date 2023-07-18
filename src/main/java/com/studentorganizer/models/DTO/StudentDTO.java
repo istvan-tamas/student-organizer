@@ -1,5 +1,4 @@
 package com.studentorganizer.models.DTO;
-import java.util.Objects;
 
 public class StudentDTO {
     private String neptune;

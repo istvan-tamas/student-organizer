@@ -37,7 +37,7 @@
 				opacity: 0.3;
 			}
 			.main-block {
-				max-width: 340px;
+				width: 380px;
 				min-height: 460px;
 				padding: 10px 0;
 				margin: auto;
@@ -135,6 +135,9 @@
 			button:hover {
 				background: #26a9e0;
 			}
+			h3 {
+				margin: 0.5em 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -147,41 +150,47 @@
 				method="post"
 			>
 				<hr />
+				<h3>Neptune code</h3>
 				<input
+					th:field="*{neptune}"
 					type="text"
 					name="neptune"
 					id="neptune"
 					placeholder="Neptune code"
 					required
 				/>
+				<h3>First name</h3>
 				<input
+					th:field="*{firstName}"
 					type="text"
 					name="firstName"
 					id="firstName"
 					placeholder="First name"
 					required
 				/>
+				<h3>Last name</h3>
 				<input
+					th:field="*{lastName}"
 					type="text"
 					name="lastName"
 					id="lastName"
 					placeholder="Last name"
 					required
 				/>
-				<input
-					type="text"
-					name="major"
-					id="major"
-					placeholder="Major"
-					required
-				/>
-				<input
-					type="text"
-					name="eduType"
-					id="eduType"
-					placeholder="Education type"
-					required
-				/>
+				<hr />
+				<h3>Major</h3>
+				<select th:field="*{major}">
+					<option value="apple">Computer science</option>
+					<option value="banana">Computer engineering</option>
+					<option value="orange">Finance</option>
+				</select>
+				<h3>Education type</h3>
+				<select th:field="*{educationType}">
+					<option value="apple">Full time</option>
+					<option value="banana">Part time</option>
+					<option value="orange">Correspondence</option>
+					<option value="pear">Long distance</option>
+				</select>
 				<hr />
 				<div class="btn-block">
 					<button type="submit" href="/">Submit</button>
