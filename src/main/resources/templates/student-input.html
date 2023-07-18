@@ -145,7 +145,7 @@
 			<h1>Student registration</h1>
 			<form
 				th:object="${input}"
-				th:action="@{/student-submit}"
+				th:action="@{/student-input}"
 				action="#"
 				method="post"
 			>
@@ -193,7 +193,8 @@
 				</select>
 				<hr />
 				<div class="btn-block">
-					<button type="submit" href="/">Submit</button>
+					<button type="submit">Submit</button>
+					<button type="reset">Reset</button>
 				</div>
 			</form>
 		</div>

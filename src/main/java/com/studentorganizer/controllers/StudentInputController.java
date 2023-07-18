@@ -17,10 +17,10 @@ public class StudentInputController {
         return "student-input";
     }
 
-    @PostMapping("/greeting")
+    @PostMapping("/student-input")
         public String studentSubmit(@ModelAttribute StudentDTO student, Model model) {
-        model.addAttribute("student-input", student);
-        return "result";
+        model.addAttribute("student", student);
+        return "submission-result";
   }
 
 }
