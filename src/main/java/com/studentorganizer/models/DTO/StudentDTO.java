@@ -1,6 +1,8 @@
 package com.studentorganizer.models.DTO;
 
-public class StudentDTO {
+import com.studentorganizer.models.abs.AbstractStudent;
+
+public class StudentDTO extends AbstractStudent {
     private String neptune;
     private String firstName;
     private String lastName;
