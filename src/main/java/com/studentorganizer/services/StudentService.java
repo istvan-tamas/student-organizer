@@ -18,7 +18,7 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public List<StudentDTO> readStudents() {
+    public List<StudentDTO> findAll() {
         return students;
     }
 

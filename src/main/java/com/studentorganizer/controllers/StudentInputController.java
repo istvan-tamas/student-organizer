@@ -1,5 +1,4 @@
 package com.studentorganizer.controllers;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,11 +22,12 @@ public class StudentInputController {
         studentService.createStudent(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType());
     }
 
-
-    @GetMapping("/student-input")
-    public List<StudentDTO> readStudents(Model model) {
-        return studentService.readStudents();
+    @GetMapping("/all")
+    public String showAll(Model model){
+        model.addAttribute("students", studentService.findAll());
+        return "/students/allStudents";
     }
+
 
     
   }
