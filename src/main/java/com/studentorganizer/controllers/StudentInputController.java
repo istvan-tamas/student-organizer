@@ -1,4 +1,6 @@
 package com.studentorganizer.controllers;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,19 +15,21 @@ import com.studentorganizer.services.StudentService;
 @Controller
 public class StudentInputController {
     
-    @GetMapping("/student-input")
-    public String addStudentForm(Model model) {
-        model.addAttribute("input", new StudentDTO());
-        return "student-input";
-    }
-
     @Autowired
     private StudentService studentService;
 
     @PostMapping("/student-input")
-        public String studentSubmit(@ModelAttribute StudentDTO student, Model model) {
+        void studentSubmit(@ModelAttribute StudentDTO student, Model model) {
         studentService.createStudent(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType());
-        return "submission-result";
-  }
+    }
 
-}
+
+    @GetMapping("/student-input")
+    public List<StudentDTO> readStudents(Model model) {
+        return studentService.readStudents();
+    }
+
+    
+  }
+    //@PutMapping("")
+    //@DeleteMapping

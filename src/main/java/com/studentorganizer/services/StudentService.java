@@ -18,8 +18,8 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public StudentDTO readStudent(int index) {
-        return students.get(index);
+    public List<StudentDTO> readStudents() {
+        return students;
     }
 
     @Override

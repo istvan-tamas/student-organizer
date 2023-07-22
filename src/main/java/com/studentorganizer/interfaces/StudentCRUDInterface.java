@@ -1,11 +1,13 @@
 package com.studentorganizer.interfaces;
 
+import java.util.List;
+
 import com.studentorganizer.models.DTO.StudentDTO;
 
 public interface StudentCRUDInterface {
     void createStudent(String neptune, String firstName, String lastName, String major, String educationType);
 
-    StudentDTO readStudent(int index);
+    public List<StudentDTO> readStudents();
 
     void updateStudent(String neptune, String firstName, String lastName, String major, String educationType, int index);
 
