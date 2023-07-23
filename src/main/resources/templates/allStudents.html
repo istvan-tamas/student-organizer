@@ -1,0 +1,19 @@
+<table>
+	<thead>
+		<tr>
+			<th>Student</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:if="${students.empty}">
+			<td colspan="2">No students</td>
+		</tr>
+		<tr th:each="student : ${students}">
+			<td><span th:text="${student.neptune}"> Neptune code </span></td>
+			<td><span th:text="${student.firstName}"> First name </span></td>
+			<td><span th:text="${student.lastName}"> Last name </span></td>
+			<td><span th:text="${student.major}"> neptune </span></td>
+			<td><span th:text="${student.educationType}"> education type </span></td>
+		</tr>
+	</tbody>
+</table>
