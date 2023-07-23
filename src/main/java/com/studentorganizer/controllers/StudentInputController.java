@@ -28,6 +28,17 @@ public class StudentInputController {
         return "/students/allStudents";
     }
 
+    @GetMapping("/create")
+    public String showCreateForm(Model model) {
+    studentService.createStudent(null, null, null, null, null);
+
+    for (int i = 1; i <= 3; i++) {
+        booksForm.addBook(new Book());
+    }
+
+    model.addAttribute("form", booksForm);
+    return "books/createBooksForm";
+}
 
     
   }

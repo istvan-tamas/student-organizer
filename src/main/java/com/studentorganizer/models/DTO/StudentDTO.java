@@ -1,10 +1,13 @@
 package com.studentorganizer.models.DTO;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.studentorganizer.models.abs.AbstractStudent;
 
 public class StudentDTO extends AbstractStudent {
+
+
     private String neptune;
     private String firstName;
     private String lastName;
