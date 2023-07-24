@@ -27,6 +27,7 @@
 					<td colspan="2">No students</td>
 				</tr>
 				<tr th:each="student : ${students}">
+					<td><span th:text="${student.uuid}"> uuid </span></td>
 					<td><span th:text="${student.neptune}"> Neptune code </span></td>
 					<td><span th:text="${student.firstName}"> First name </span></td>
 					<td><span th:text="${student.lastName}"> Last name </span></td>
