@@ -1,6 +1,7 @@
 package com.studentorganizer.interfaces;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.studentorganizer.models.DTO.StudentDTO;
 
@@ -12,5 +13,7 @@ public interface StudentCRUDInterface {
     void updateStudent(String neptune, String firstName, String lastName, String major, String educationType, int index);
 
     public void deleteStudent(int index);
+
+    public StudentDTO getStudent(UUID id);
 
 }

@@ -2,6 +2,7 @@ package com.studentorganizer.services;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import com.studentorganizer.interfaces.StudentCRUDInterface;
 import com.studentorganizer.models.DTO.StudentDTO;
@@ -35,6 +36,11 @@ public class StudentService implements StudentCRUDInterface {
     @Override
     public void deleteStudent(int index) {
         students.remove(index);
+    }
+
+    @Override
+    public StudentDTO getStudent(UUID id){
+        return students.stream().filter(t -> t.getUuid().equals(id)).findFirst().get();
     }
     
 }
