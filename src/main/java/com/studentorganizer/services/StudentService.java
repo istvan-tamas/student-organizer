@@ -1,5 +1,6 @@
 package com.studentorganizer.services;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.studentorganizer.interfaces.StudentCRUDInterface;
@@ -9,7 +10,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService implements StudentCRUDInterface {
 
-    List<StudentDTO> students;
+    private List<StudentDTO> students = Arrays.asList(
+        new StudentDTO("HRBOFJ", "Ronald", "McDonald","PTI","correspondance"),
+        new StudentDTO("ASD123", "Guy", "Johnson","MTI","full-time")
+    );
 
     @Override
     public void createStudent(String neptune, String firstName, String lastName, String major, String educationType) {

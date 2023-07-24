@@ -1,6 +1,5 @@
 package com.studentorganizer.models.DTO;
 
-import java.util.List;
 import java.util.UUID;
 
 import com.studentorganizer.models.abs.AbstractStudent;
