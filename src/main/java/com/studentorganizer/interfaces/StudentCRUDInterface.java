@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.studentorganizer.models.DTO.StudentDTO;
 
 public interface StudentCRUDInterface {
-    void createStudent(StudentDTO student);
+    public StudentDTO createStudent(StudentDTO student);
 
     public List<StudentDTO> findAll();
 
