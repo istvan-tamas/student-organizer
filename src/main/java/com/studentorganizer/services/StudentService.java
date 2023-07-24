@@ -40,8 +40,9 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public void deleteStudent(int index) {
-        students.remove(index);
+    public void deleteStudent(UUID id) {
+        students.removeIf(t -> t.getUuid().equals(id));
+        return;
     }
 
     @Override

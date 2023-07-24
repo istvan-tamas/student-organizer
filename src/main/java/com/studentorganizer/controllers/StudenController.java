@@ -39,6 +39,11 @@ public class StudenController {
     public void updateStudent(@RequestBody StudentDTO student, @PathVariable UUID id){
         studentService.updateStudent(id, student);
     }
+
+    @RequestMapping(method=RequestMethod.DELETE, value = "/students/{id}")
+    public void deleteStudent(@PathVariable UUID id){
+        studentService.deleteStudent(id);
+    }
 }
 
     
