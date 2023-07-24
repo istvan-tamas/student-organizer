@@ -42,13 +42,14 @@ public class StudenController {
  //   public void addStudent(@RequestBody StudentDTO student){
  //       studentService.createStudent(student);
  //   }
-    @GetMapping("/student-input")
+ 
+    @GetMapping("/new-student")
     public String showNewStudentform(Model model, StudentDTO student){
         model.addAttribute("student", studentService.createStudent(student));
         return "new-student";
     }
 
-    @PostMapping("/student-input")
+    @PostMapping("/new-student")
     public String addStudent(Model model, StudentDTO student){
         model.addAttribute("student", studentService.createStudent(student));
         return "redirect:/students";
@@ -59,12 +60,15 @@ public class StudenController {
         studentService.updateStudent(id, student);
     }
 
-    @RequestMapping(method=RequestMethod.DELETE, value = "/students/{id}")
-    public void deleteStudent(@PathVariable UUID id){
-        studentService.deleteStudent(id);
-    }
-}
+//   @RequestMapping(method=RequestMethod.DELETE, value = "/students/{id}")
+//    public void deleteStudent(@PathVariable UUID id){
+//        studentService.deleteStudent(id);
+//    }
 
-    
-    //@PutMapping("")
-    //@DeleteMapping
+    @GetMapping("/delete-student/{id}")
+    public String deleteStudent(Model model, @PathVariable UUID id){
+        model.addAttribute("student", studentService.deleteStudent(id));
+        return "redirect:/students";
+    }
+
+}

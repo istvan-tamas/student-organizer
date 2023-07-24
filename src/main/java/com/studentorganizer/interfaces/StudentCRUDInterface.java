@@ -12,7 +12,7 @@ public interface StudentCRUDInterface {
 
     public void updateStudent(UUID id, StudentDTO student);
 
-    public void deleteStudent(UUID id);
+    public int deleteStudent(UUID id);
 
     public StudentDTO getStudent(UUID id);
 
