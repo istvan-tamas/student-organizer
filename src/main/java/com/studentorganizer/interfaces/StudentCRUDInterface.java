@@ -10,7 +10,7 @@ public interface StudentCRUDInterface {
 
     public List<StudentDTO> findAll();
 
-    public void updateStudent(UUID id, StudentDTO student);
+    public StudentDTO updateStudent(UUID id, StudentDTO student);
 
     public int deleteStudent(UUID id);
 

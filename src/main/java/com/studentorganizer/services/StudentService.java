@@ -30,14 +30,15 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public void updateStudent(UUID id, StudentDTO student) {
+    public StudentDTO updateStudent(UUID id, StudentDTO student) {
         for(int i = 0; i< students.size(); i++){
             StudentDTO s = students.get(i);
             if(s.getUuid().equals(id)){
                 students.set(i, student);
-                return;
+                return s;
             }
         }
+        return student;
     }
 
     @Override

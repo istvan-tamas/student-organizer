@@ -55,9 +55,11 @@ public class StudenController {
         return "redirect:/students";
     }
 
-    @RequestMapping(method=RequestMethod.PUT, value = "/students/{id}")
-    public void updateStudent(@RequestBody StudentDTO student, @PathVariable UUID id){
+    @GetMapping("/update-student/{id}")
+    public String updateStudent(Model model, @PathVariable UUID id, StudentDTO student){
         studentService.updateStudent(id, student);
+        model.addAttribute("student", studentService.updateStudent(id, student));
+        return "update-student" ;
     }
 
 //   @RequestMapping(method=RequestMethod.DELETE, value = "/students/{id}")
