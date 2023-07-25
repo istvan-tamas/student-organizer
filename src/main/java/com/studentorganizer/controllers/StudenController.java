@@ -8,9 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import com.studentorganizer.models.DTO.StudentDTO;
 import com.studentorganizer.services.StudentService;
@@ -45,13 +44,14 @@ public class StudenController {
  
     @GetMapping("/new-student")
     public String showNewStudentform(Model model, StudentDTO student){
-        model.addAttribute("student", studentService.createStudent(student));
+        model.addAttribute("student", student);
         return "new-student";
     }
 
     @PostMapping("/new-student")
     public String addStudent(Model model, StudentDTO student){
-        model.addAttribute("student", studentService.createStudent(student));
+        model.addAttribute("student", student);
+        studentService.createStudent(student);
         return "redirect:/students";
     }
 

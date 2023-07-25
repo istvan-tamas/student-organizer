@@ -19,9 +19,9 @@ public class StudentService implements StudentCRUDInterface {
     );
 
     @Override
-    public StudentDTO createStudent(StudentDTO student) {
+    public void createStudent(StudentDTO student) {
         students.add(student);
-        return student;
+        return;
     }
 
     @Override
