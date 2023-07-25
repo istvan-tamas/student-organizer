@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -70,9 +72,9 @@ public class StudenController {
 //    }
 
    @PostMapping("/update-student")
-    public String updateStudent(Model model, StudentDTO student){
-        model.addAttribute("student", student);
-        studentService.updateStudent(student.getUuid(), student);
+    public String updateStudent(@RequestBody StudentDTO student, @PathVariable UUID id){
+      //  model.addAttribute("student", student);
+        studentService.updateStudent(id, student);
         return "redirect:/students";
     }
 
