@@ -13,13 +13,13 @@
 
 	<body>
 		<div class="container">
-			<h1>Employee Management System</h1>
+			<h1>Student Management System</h1>
 			<hr />
-			<h2>Update Employee</h2>
+			<h2>Update Student</h2>
 
 			<form
 				action="#"
-				th:action="@{/new-student}"
+				th:action="@{/update-student}"
 				th:object="${student}"
 				method="POST"
 			>
@@ -29,7 +29,7 @@
 				<input
 					type="text"
 					th:field="*{neptune}"
-					placeholder="neptune code"
+					placeholder="Neptune"
 					class="form-control mb-4 col-4"
 				/>
 				<input

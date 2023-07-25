@@ -62,7 +62,7 @@ public class StudentDTO extends AbstractStudent {
         this.educationType = educationType;
     }
 
-    public StudentDTO(String neptune, String firstName, String lastName, String major, String educationType) {
+    public StudentDTO(String neptune, String firstName, String lastName, String major, String educationType, UUID uuid) {
         this.neptune = neptune;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -70,12 +70,6 @@ public class StudentDTO extends AbstractStudent {
         this.educationType = educationType;
         this.uuid = UUID.randomUUID();
     }
-
-    public StudentDTO(){
-        this.uuid = UUID.randomUUID();
-    }
-
-
 
     @Override
     public String toString() {

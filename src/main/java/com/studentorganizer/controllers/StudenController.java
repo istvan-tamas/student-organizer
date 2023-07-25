@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.studentorganizer.models.DTO.StudentDTO;
 import com.studentorganizer.services.StudentService;
@@ -32,10 +33,10 @@ public class StudenController {
         return "/students";
     }
 
-    @RequestMapping("/students/{id}")
-    public StudentDTO getStudent(@PathVariable UUID id){
-        return studentService.getStudent(id);
-    }
+//    @RequestMapping("/students/{id}")
+//    public StudentDTO getStudent(@PathVariable UUID id){
+//        return studentService.getStudent(id);
+//    }
 
  //   @RequestMapping(method=RequestMethod.POST, value = "/students")
  //   public void addStudent(@RequestBody StudentDTO student){
@@ -56,20 +57,29 @@ public class StudenController {
     }
 
     @GetMapping("/update-student/{id}")
-    public String updateStudent(Model model, @PathVariable UUID id, StudentDTO student){
-        studentService.updateStudent(id, student);
-        model.addAttribute("student", studentService.updateStudent(id, student));
+    public String showUpdateStudent(Model model, @PathVariable UUID id, StudentDTO student){
+        model.addAttribute("student", student);
         return "update-student" ;
     }
 
-//   @RequestMapping(method=RequestMethod.DELETE, value = "/students/{id}")
-//    public void deleteStudent(@PathVariable UUID id){
-//        studentService.deleteStudent(id);
+//    @PostMapping("/update-student")
+//    public String updateStudent(Model model, StudentDTO student){
+//        model.addAttribute("student", student);
+//        studentService.deleteStudent(student.getUuid());
+//        return "redirect:/students" ;
 //    }
 
+   @PostMapping("/update-student")
+    public String updateStudent(Model model, StudentDTO student){
+        model.addAttribute("student", student);
+        studentService.updateStudent(student.getUuid(), student);
+        return "redirect:/students";
+    }
+
     @GetMapping("/delete-student/{id}")
-    public String deleteStudent(Model model, @PathVariable UUID id){
-        model.addAttribute("student", studentService.deleteStudent(id));
+    public String deleteStudent(Model model, @PathVariable UUID id, StudentDTO student){
+        model.addAttribute("student", student);
+        studentService.deleteStudent(id);
         return "redirect:/students";
     }
 

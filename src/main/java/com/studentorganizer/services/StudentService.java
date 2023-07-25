@@ -13,13 +13,14 @@ import org.springframework.stereotype.Service;
 public class StudentService implements StudentCRUDInterface {
 
     private List<StudentDTO> students = new ArrayList<>(Arrays.asList(
-        new StudentDTO("HRBOFJ", "Ronald", "McDonald","PTI","correspondance"),
-        new StudentDTO("ASD123", "Guy", "Johnson","MTI","full-time")
+        new StudentDTO("HRBOFJ", "Ronald", "McDonald","PTI","correspondance",UUID.randomUUID()),
+        new StudentDTO("ASD123", "Guy", "Johnson","MTI","full-time",UUID.randomUUID())
      )
     );
 
     @Override
     public void createStudent(StudentDTO student) {
+        student.setUuid(UUID.randomUUID());
         students.add(student);
         return;
     }
@@ -30,21 +31,19 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public StudentDTO updateStudent(UUID id, StudentDTO student) {
-        for(int i = 0; i< students.size(); i++){
-            StudentDTO s = students.get(i);
+    public void updateStudent(UUID id, StudentDTO student) {
+        for(int i = 0; i < students.size(); i++){
+            StudentDTO s = students.get(i);   
             if(s.getUuid().equals(id)){
                 students.set(i, student);
-                return s;
+                return;
             }
         }
-        return student;
     }
 
     @Override
-    public int deleteStudent(UUID id) {
+    public void deleteStudent(UUID id) {
         students.removeIf(t -> t.getUuid().equals(id));
-        return 0;
     }
 
     @Override
