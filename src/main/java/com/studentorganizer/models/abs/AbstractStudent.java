@@ -1,5 +1,6 @@
 package com.studentorganizer.models.abs;
 
+import java.util.UUID;
 
 public abstract class AbstractStudent {
     private String neptune;
@@ -7,4 +8,5 @@ public abstract class AbstractStudent {
     private String lastName;
     private String major;
     private String educationType;
+    private UUID uuid;
 }

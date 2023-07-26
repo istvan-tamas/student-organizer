@@ -19,13 +19,12 @@
 
 			<form
 				action="#"
-				th:action="@{update-student}"
+				th:action="@{/update-student}"
 				th:object="${student}"
-				method="GET"
+				method="POST"
 			>
 				<!-- Add hidden form field to handle update -->
 				<input type="hidden" th:field="*{uuid}" />
-				<h1><span th:text="*{uuid}"></span></h1>
 				<input
 					type="text"
 					th:field="*{neptune}"
