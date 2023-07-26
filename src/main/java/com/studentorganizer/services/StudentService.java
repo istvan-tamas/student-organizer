@@ -13,8 +13,11 @@ import org.springframework.stereotype.Service;
 public class StudentService implements StudentCRUDInterface {
 
     private List<StudentDTO> students = new ArrayList<>(Arrays.asList(
-        new StudentDTO("HRBOFJ", "Ronald", "McDonald","PTI","correspondance",UUID.randomUUID()),
-        new StudentDTO("ASD123", "Guy", "Johnson","MTI","full-time",UUID.randomUUID())
+        new StudentDTO("790758", "Joye", "Braunle","PTI","full-time",UUID.randomUUID()),
+        new StudentDTO("401953", "Eryn", "Delouch","PTI","part-time",UUID.randomUUID()),
+        new StudentDTO("769424", "Kale", "Dougliss","GI","part-time",UUID.randomUUID()),
+        new StudentDTO("431590", "Marlo", "Edwinson","MI","full-time",UUID.randomUUID()),
+        new StudentDTO("781693", "Lorry", "Hardwich","PTI","full-time",UUID.randomUUID())
      )
     );
 

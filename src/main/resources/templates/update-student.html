@@ -9,13 +9,24 @@
 			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 			crossorigin="anonymous"
 		/>
+		<style>
+			.container {
+				width: 800px;
+			}
+			h1 {
+				margin: 1em;
+			}
+			h2 {
+				margin: 1em 0;
+			}
+		</style>
 	</head>
 
 	<body>
 		<div class="container">
-			<h1>Student Management System</h1>
+			<h1>- SMS - Student Management System</h1>
 			<hr />
-			<h2>Update Student</h2>
+			<h2>Update a student entry</h2>
 
 			<form
 				action="#"
@@ -28,43 +39,41 @@
 				<input
 					type="text"
 					th:field="*{neptune}"
-					placeholder="Neptune"
+					placeholder="Neptune code"
 					class="form-control mb-4 col-4"
 				/>
 				<input
 					type="text"
 					th:field="*{firstName}"
-					placeholder="Student First Name"
+					placeholder="First name"
 					class="form-control mb-4 col-4"
 				/>
 
 				<input
 					type="text"
 					th:field="*{lastName}"
-					placeholder="StudentLast Name"
+					placeholder="Last name"
 					class="form-control mb-4 col-4"
 				/>
 
-				<input
-					type="text"
-					th:field="*{major}"
-					placeholder="Employee major"
-					class="form-control mb-4 col-4"
-				/>
+				<select th:field="*{major}">
+					<option th:value="'PTI'">Computer science</option>
+					<option th:value="'MI'">Computer engineering</option>
+					<option th:value="'GI'">Economics</option>
+				</select>
 
-				<input
-					type="text"
-					th:field="*{educationType}"
-					placeholder="education type"
-					class="form-control mb-4 col-4"
-				/>
+				<select th:field="*{educationType}">
+					<option th:value="'full-time'">Full time</option>
+					<option th:value="'part-time'">Part time</option>
+					<option th:value="'correspondance'">Correspondence</option>
+				</select>
 
 				<button type="submit" class="btn btn-info col-2">Update Student</button>
 			</form>
 
 			<hr />
 
-			<a th:href="@{/students}"> Back to Employee List</a>
+			<a th:href="@{/students}"> Back to Student List</a>
 		</div>
 	</body>
 </html>
