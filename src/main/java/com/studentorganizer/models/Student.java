@@ -18,14 +18,6 @@ public class Student {
     this.uuid = uuid;
 }
 
-    public String getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
     public String getNeptune() {
         return this.neptune;
     }
@@ -64,5 +56,13 @@ public class Student {
 
     public void setEducationType(String educationType) {
         this.educationType = educationType;
+    }
+    
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

@@ -1,7 +1,5 @@
 package com.studentorganizer.models.DTO;
 
-import java.util.UUID;
-
 import com.studentorganizer.models.abs.AbstractStudent;
 
 public class StudentDTO extends AbstractStudent {
@@ -12,15 +10,6 @@ public class StudentDTO extends AbstractStudent {
     private String lastName;
     private String major;
     private String educationType;
-    private UUID uuid;
-
-    public UUID getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
 
     public String getNeptune() {
         return this.neptune;
@@ -62,13 +51,12 @@ public class StudentDTO extends AbstractStudent {
         this.educationType = educationType;
     }
 
-    public StudentDTO(String neptune, String firstName, String lastName, String major, String educationType, UUID uuid) {
+    public StudentDTO(String neptune, String firstName, String lastName, String major, String educationType) {
         this.neptune = neptune;
         this.firstName = firstName;
         this.lastName = lastName;
         this.major = major;
         this.educationType = educationType;
-        this.uuid = UUID.randomUUID();
     }
 
     @Override
