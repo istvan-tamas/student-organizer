@@ -1,6 +1,8 @@
 package com.studentorganizer.models;
 
-public class Student {
+import com.studentorganizer.models.abs.AbstractStudent;
+
+public class Student extends AbstractStudent {
 
     private String neptune;
     private String firstName;
