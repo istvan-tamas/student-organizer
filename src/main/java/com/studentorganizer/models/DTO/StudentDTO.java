@@ -12,7 +12,21 @@ public class StudentDTO extends AbstractStudent {
     private String lastName;
     private String major;
     private String educationType;
+
+    // string nem uuid
     private UUID uuid;
+
+    // Stringgel kell átadni a uuid-t
+    public StudentDTO(String neptune, String firstName, String lastName, String major, String educationType, UUID uuid) {
+        this.neptune = neptune;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.major = major;
+        this.educationType = educationType;
+
+        //string
+        this.uuid = UUID.randomUUID();
+    }
 
     public UUID getUuid() {
         return this.uuid;
@@ -62,14 +76,7 @@ public class StudentDTO extends AbstractStudent {
         this.educationType = educationType;
     }
 
-    public StudentDTO(String neptune, String firstName, String lastName, String major, String educationType, UUID uuid) {
-        this.neptune = neptune;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.major = major;
-        this.educationType = educationType;
-        this.uuid = UUID.randomUUID();
-    }
+
 
     @Override
     public String toString() {

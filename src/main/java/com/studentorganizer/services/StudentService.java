@@ -36,9 +36,15 @@ public class StudentService implements StudentCRUDInterface {
     @Override
     public void updateStudent(UUID id, StudentDTO student) {
         for(int i = 0; i < students.size(); i++){
+            // find student by id
             StudentDTO s = students.get(i);   
             if(s.getUuid().equals(id)){
                 students.set(i, student);
+                //ellenőrzés, hogy az update sikerült-e
+                // Student DTO == nem nulla-e
+
+                // ha nem sikerült az update, akkkor hibaüzenet
+                // küldje vissza az id-t string-ben
                 return;
             }
         }

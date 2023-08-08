@@ -8,5 +8,7 @@ public abstract class AbstractStudent {
     private String lastName;
     private String major;
     private String educationType;
+    
+    // ki kell venni
     private UUID uuid;
 }
