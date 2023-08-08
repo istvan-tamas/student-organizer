@@ -67,4 +67,5 @@ public class Student extends AbstractStudent {
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
+
 }

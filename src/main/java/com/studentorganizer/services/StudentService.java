@@ -33,14 +33,9 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public void updateStudent(UUID id, StudentDTO student) {
-        for(int i = 0; i < students.size(); i++){
-            StudentDTO s = students.get(i);   
-            if(s.getUuid().equals(id)){
-                students.set(i, student);
-                return;
-            }
-        }
+    public String updateStudent(String id, Student student) {
+        this.findStudentById(id, student);
+        
     }
 
     @Override
@@ -51,6 +46,15 @@ public class StudentService implements StudentCRUDInterface {
     @Override
     public Student getStudent(String id){
         return students.stream().filter(t -> t.getUuid().equals(id)).findFirst().get();
+    }
+
+    @Override
+    public String findStudentById(String id, Student student){
+        for (int counter = 0; counter < students.size(); counter++) { 		      
+            if(student.uuid == id){
+                return id;
+            }		
+        } 
     }
     
 }
