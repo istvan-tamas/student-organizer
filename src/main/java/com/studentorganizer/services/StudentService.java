@@ -23,8 +23,9 @@ public class StudentService implements StudentCRUDInterface {
     );
 
     @Override
-    public void addStudent(Student student) {
+    public String addStudent(Student student) {
         students.add(student);
+        return "Student added OK";
     }
 
     @Override

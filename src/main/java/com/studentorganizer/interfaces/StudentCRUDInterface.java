@@ -5,7 +5,7 @@ import java.util.List;
 import com.studentorganizer.models.Student;
 
 public interface StudentCRUDInterface {
-    public void addStudent(Student student);
+    public String addStudent(Student student);
 
     public List<Student> findAll();
 
