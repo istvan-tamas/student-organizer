@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.studentorganizer.models.Student;
 import com.studentorganizer.models.DTO.StudentDTO;
 import com.studentorganizer.services.StudentService;
 
@@ -33,15 +34,16 @@ public class StudenController {
     }
 
     @PostMapping("/new-student")
-    public String addStudent(Model model, StudentDTO student){
+    public String addStudent(Model model, Student student){
         model.addAttribute("student", student);
-        studentService.createStudent(student);
+        studentService.addStudent(student);
         return "redirect:/students";
     }
 
     @GetMapping("/update-student/{id}")
-    public String showUpdateStudent(Model model, @PathVariable UUID id, StudentDTO student){
-        student.setUuid(id);
+    public String showUpdateStudent(Model model, @PathVariable String id, Student student){
+
+        StudentService.updateStudent(id,student);
         model.addAttribute("student", student);
         return "update-student" ;
     }
