@@ -25,7 +25,7 @@ public class StudentService implements StudentCRUDInterface {
     @Override
     public String addStudent(Student student) {
         students.add(student);
-        return "Student added OK";
+        return "Student added OK!";
     }
 
     @Override
@@ -36,12 +36,14 @@ public class StudentService implements StudentCRUDInterface {
     @Override
     public String updateStudent(String id, Student student) {
         this.findStudentById(id, student);
+        return "Student updated OK!";
         
     }
 
     @Override
-    public void deleteStudent(String id) {
+    public String deleteStudent(String id) {
         students.removeIf(t -> t.getUuid().equals(id));
+        return "Student deleted OK!";
     }
 
     @Override
