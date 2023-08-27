@@ -7,7 +7,6 @@ import java.util.UUID;
 
 import com.studentorganizer.interfaces.StudentCRUDInterface;
 import com.studentorganizer.models.Student;
-import com.studentorganizer.models.DTO.StudentDTO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,7 +34,7 @@ public class StudentService implements StudentCRUDInterface {
 
     @Override
     public String updateStudent(String id, Student student) {
-        this.findStudentById(id, student);
+        students.set(students.indexOf(student),this.getStudent(id));
         return "Student updated OK!";
         
     }
@@ -49,15 +48,6 @@ public class StudentService implements StudentCRUDInterface {
     @Override
     public Student getStudent(String id){
         return students.stream().filter(t -> t.getUuid().equals(id)).findFirst().get();
-    }
-
-    @Override
-    public String findStudentById(String id, Student student){
-        for (int counter = 0; counter < students.size(); counter++) { 		      
-            if(student.uuid == id){
-                return id;
-            }		
-        } 
     }
     
 }

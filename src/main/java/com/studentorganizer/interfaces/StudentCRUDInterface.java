@@ -11,10 +11,8 @@ public interface StudentCRUDInterface {
 
     public String updateStudent(String id, Student student);
 
-    public void deleteStudent(String id);
+    public String deleteStudent(String id);
 
     public Student getStudent(String id);
-
-    public String findStudentById(String id, String student);
 
 }
