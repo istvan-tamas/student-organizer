@@ -37,9 +37,14 @@ public class StudentService implements StudentCRUDInterface {
 
     @Override
     public String updateStudent(String id, Student student) {
-        students.set(students.indexOf(getStudent(id)),student);
-        return "Student updated OK!";
-        
+        Student updateStudent = new Student(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType(), id);
+        if(this.getStudentbyId(id) == null){
+            return "Student update failed!";
+            
+        }else{
+            students.set(students.indexOf(getStudentbyId(id)),updateStudent);
+            return "Student updated OK!";
+        }  
     }
 
     @Override
@@ -49,7 +54,7 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public Student getStudent(String id){
+    public Student getStudentbyId(String id){
         return students.stream().filter(t -> t.getUuid().equals(id)).findFirst().get();
     }
     
