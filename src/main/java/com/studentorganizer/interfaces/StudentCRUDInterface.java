@@ -9,7 +9,7 @@ public interface StudentCRUDInterface {
 
     public List<Student> findAll();
 
-    public void updateStudent(String id, Student student);
+    public String updateStudent(Student student);
 
     public String deleteStudent(String id);
 

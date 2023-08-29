@@ -7,7 +7,6 @@ import java.util.UUID;
 
 import com.studentorganizer.interfaces.StudentCRUDInterface;
 import com.studentorganizer.models.Student;
-import com.studentorganizer.models.DTO.StudentDTO;
 
 import org.springframework.stereotype.Service;
 
@@ -36,9 +35,10 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public void updateStudent(String id, Student student) {
-        Student updateStudent = new Student(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType(), id);
-        students.set(students.indexOf(getStudentbyId(id)),updateStudent);
+    public String updateStudent(Student student) {
+        Student updateStudent = new Student(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType(), student.getUuid());
+        students.set(1,updateStudent);
+        return "Student update OK";
     }
 
     @Override
@@ -49,7 +49,11 @@ public class StudentService implements StudentCRUDInterface {
 
     @Override
     public Student getStudentbyId(String id){
-        return students.stream().filter(t -> t.getUuid().equals(id)).findFirst().get();
+        for (Student student : students) {
+            if (student.getUuid().equals(id)) {
+                return student;
+            }
+        }
+        return null;
+        }
     }
-    
-}

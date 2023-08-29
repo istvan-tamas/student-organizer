@@ -1,6 +1,5 @@
 package com.studentorganizer.controllers;
 
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,16 +40,16 @@ public class StudenController {
     }
 
     @GetMapping("/update-student/{id}")
-    public String showUpdateStudent(Model model, @PathVariable String id, Student student){
-        studentService.updateStudent(id,student);
+    public String showUpdateStudent(Model model, @PathVariable String id, StudentDTO student){
+        //studentService.updateStudent(id,student);
         model.addAttribute("student", student);
         return "update-student" ;
     }
 
    @PostMapping("/update-student")
-    public String updateStudent(Model model, Student student){
+    public String updateStudent(Model model, StudentDTO student){
         model.addAttribute("student", student);
-        studentService.updateStudent(student.getUuid(), student);
+        studentService.updateStudent(student);
         return "redirect:/students";
     }
 
