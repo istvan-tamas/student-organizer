@@ -42,20 +42,20 @@ public class StudenController {
 
     @GetMapping("/update-student/{id}")
     public String showUpdateStudent(Model model, @PathVariable String id, Student student){
-        StudentService.updateStudent(id,student);
+        studentService.updateStudent(id,student);
         model.addAttribute("student", student);
         return "update-student" ;
     }
 
    @PostMapping("/update-student")
-    public String updateStudent(Model model, StudentDTO student){
+    public String updateStudent(Model model, Student student){
         model.addAttribute("student", student);
         studentService.updateStudent(student.getUuid(), student);
         return "redirect:/students";
     }
 
     @GetMapping("/delete-student/{id}")
-    public String deleteStudent(Model model, @PathVariable UUID id, StudentDTO student){
+    public String deleteStudent(Model model, @PathVariable String id, StudentDTO student){
         model.addAttribute("student", student);
         studentService.deleteStudent(id);
         return "redirect:/students";

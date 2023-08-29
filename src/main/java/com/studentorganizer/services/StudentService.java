@@ -36,15 +36,9 @@ public class StudentService implements StudentCRUDInterface {
     }
 
     @Override
-    public String updateStudent(String id, Student student) {
+    public void updateStudent(String id, Student student) {
         Student updateStudent = new Student(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType(), id);
-        if(this.getStudentbyId(id) == null){
-            return "Student update failed!";
-            
-        }else{
-            students.set(students.indexOf(getStudentbyId(id)),updateStudent);
-            return "Student updated OK!";
-        }  
+        students.set(students.indexOf(getStudentbyId(id)),updateStudent);
     }
 
     @Override
