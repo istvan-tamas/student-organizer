@@ -42,7 +42,7 @@ public class StudenController {
     @GetMapping("/update-student/{id}")
     public String showUpdateStudent(Model model, Student student, @PathVariable String id){
         //studentService.updateStudent(id,student);
-        model.addAttribute("student", student);
+        model.addAttribute("student", studentService.getStudentbyId(id));
         return "update-student" ;
     }
 

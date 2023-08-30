@@ -27,6 +27,7 @@
 			<h1>- SMS - Student Management System</h1>
 			<hr />
 			<h2>Update a student entry</h2>
+			<hr />
 
 			<form
 				action="#"
@@ -35,7 +36,9 @@
 				method="POST"
 			>
 				<!-- Add hidden form field to handle update -->
-				<input type="hidden" th:field="*{uuid == param.id}" />
+				<!-- <input type="hidden" th:field="*{uuid == param.id}" /> -->
+				<p th:text="${student.uuid}" />
+				<p th:text="${student.neptune}" />
 				<input
 					type="text"
 					th:field="*{neptune}"
