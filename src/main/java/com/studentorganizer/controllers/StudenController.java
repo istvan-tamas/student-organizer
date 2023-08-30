@@ -40,15 +40,21 @@ public class StudenController {
     }
 
     @GetMapping("/update-student/{id}")
-    public String showUpdateStudent(Model model, @PathVariable String id, StudentDTO student){
+    public String showUpdateStudent(Model model, Student student, @PathVariable String id){
         //studentService.updateStudent(id,student);
         model.addAttribute("student", student);
         return "update-student" ;
     }
 
    @PostMapping("/update-student")
-    public String updateStudent(Model model, StudentDTO student){
+    public String updateStudent(Model model, Student student){
         model.addAttribute("student", student);
+        System.out.println("Test");
+        System.out.println(student.getUuid());
+        System.out.println(student.getFirstName());
+        System.out.println(student.getLastName());
+        System.out.println(student.getNeptune());
+        
         studentService.updateStudent(student);
         return "redirect:/students";
     }
