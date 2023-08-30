@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import com.studentorganizer.interfaces.StudentCRUDInterface;
 import com.studentorganizer.models.Student;
+import com.studentorganizer.models.DTO.StudentDTO;
 
 import org.springframework.stereotype.Service;
 
@@ -23,9 +24,9 @@ public class StudentService implements StudentCRUDInterface {
     );
 
     @Override
-    public String addStudent(Student student) {
-        student.setUuid(UUID.randomUUID().toString());
-        students.add(student);
+    public String addStudent(StudentDTO student) {
+        Student newStudent = new Student(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType(), UUID.randomUUID().toString());
+        students.add(newStudent);
         return "Student added OK!";
     }
 

@@ -33,7 +33,7 @@ public class StudenController {
     }
 
     @PostMapping("/new-student")
-    public String addStudent(Model model, Student student){
+    public String addStudent(Model model, StudentDTO student){
         model.addAttribute("student", student);
         studentService.addStudent(student);
         return "redirect:/students";
