@@ -22,7 +22,7 @@ public class StudentService implements StudentCRUDInterface {
         new Student("781693", "Lorry", "Hardwich","PTI","full-time",UUID.randomUUID().toString())
      )
     );
-
+// magába az osztályban construktor-ban legyen uuid
     @Override
     public String addStudent(StudentDTO student) {
         Student newStudent = new Student(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType(), UUID.randomUUID().toString());
@@ -50,6 +50,7 @@ public class StudentService implements StudentCRUDInterface {
 
     @Override
     public Student getStudentbyId(String id){
+        // foreach for vagy stream
         for (Student student : students) {
             if (student.getUuid().equals(id)) {
                 return student;
