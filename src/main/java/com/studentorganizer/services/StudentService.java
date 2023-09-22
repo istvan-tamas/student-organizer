@@ -40,6 +40,7 @@ public class StudentService implements StudentCRUDInterface {
         Student updateStudent = new Student(student.getNeptune(), student.getFirstName(), student.getLastName(), student.getMajor(), student.getEducationType(), student.getUuid());
         students.set(students.indexOf(getStudentbyId(student.getUuid())),updateStudent);
         return "Student update OK";
+
     }
 
     @Override
