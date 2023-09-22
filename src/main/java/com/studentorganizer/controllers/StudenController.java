@@ -1,6 +1,5 @@
 package com.studentorganizer.controllers;
 
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.studentorganizer.models.Student;
 import com.studentorganizer.models.DTO.StudentDTO;
 import com.studentorganizer.services.StudentService;
 
@@ -35,26 +35,25 @@ public class StudenController {
     @PostMapping("/new-student")
     public String addStudent(Model model, StudentDTO student){
         model.addAttribute("student", student);
-        studentService.createStudent(student);
+        studentService.addStudent(student);
         return "redirect:/students";
     }
 
     @GetMapping("/update-student/{id}")
-    public String showUpdateStudent(Model model, @PathVariable UUID id, StudentDTO student){
-        student.setUuid(id);
-        model.addAttribute("student", student);
+    public String showUpdateStudent(Model model, Student student, @PathVariable String id){
+        model.addAttribute("student", studentService.getStudentbyId(id));
         return "update-student" ;
     }
 
    @PostMapping("/update-student")
-    public String updateStudent(Model model, StudentDTO student){
-        model.addAttribute("student", student);
-        studentService.updateStudent(student.getUuid(), student);
+    public String updateStudent(Model model, Student student){
+        model.addAttribute("student", student);  
+        studentService.updateStudent(student);
         return "redirect:/students";
     }
 
     @GetMapping("/delete-student/{id}")
-    public String deleteStudent(Model model, @PathVariable UUID id, StudentDTO student){
+    public String deleteStudent(Model model, @PathVariable String id, StudentDTO student){
         model.addAttribute("student", student);
         studentService.deleteStudent(id);
         return "redirect:/students";
