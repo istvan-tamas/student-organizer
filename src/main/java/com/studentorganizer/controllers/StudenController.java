@@ -1,6 +1,8 @@
 package com.studentorganizer.controllers;
 
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.studentorganizer.models.Student;
 import com.studentorganizer.models.DTO.StudentDTO;
+import com.studentorganizer.services.DeployService;
 import com.studentorganizer.services.StudentService;
 
 
@@ -19,6 +22,16 @@ public class StudenController {
     
     @Autowired
     private StudentService studentService;
+    private DeployService deployService;
+
+    @GetMapping("/")
+    public void deploy() throws IOException{
+        try{
+        deployService.start();
+        } catch (Exception e) {
+            System.out.println("Shit happens");
+        }
+    }
 
     @RequestMapping("/students")
     public String showAll(Model model){
