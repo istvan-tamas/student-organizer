@@ -1,15 +1,10 @@
 package com.studentorganizer.services;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.UUID;
+import org.springframework.stereotype.Service;
 
-import com.studentorganizer.models.Student;
-
+@Service
 public class DeployService {
-    public String start() {
-        return "walami";
+    public void start() {
+        System.out.println("this is the deployment service");
     }
 }

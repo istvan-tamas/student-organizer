@@ -23,7 +23,7 @@ public class StudenController {
     @RequestMapping("/students")
     public String showAll(Model model){
         model.addAttribute("students", studentService.findAll());
-        return "/students";
+        return "students";
     }
  
     @GetMapping("/new-student")
