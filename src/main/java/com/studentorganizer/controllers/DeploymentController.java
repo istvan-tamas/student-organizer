@@ -13,7 +13,7 @@ public class DeploymentController {
     @Autowired
     private DeployService deployService;
 
-    @GetMapping("/deploy")
+    @GetMapping("/")
     public String deploy(Model model){
         deployService.start();
         return "deployment";
