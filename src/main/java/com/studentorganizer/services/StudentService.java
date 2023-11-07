@@ -52,9 +52,9 @@ public class StudentService implements StudentCRUDInterface {
     @Override
     public Student getStudentbyId(String id){
         // foreach for vagy stream
-        for (Student student : students) {
-            if (student.getUuid().equals(id)) {
-                return student;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getUuid().equals(id)) {
+                return students.get(i);
             }
         }
         return null;
