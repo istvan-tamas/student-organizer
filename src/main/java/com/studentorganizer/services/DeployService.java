@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DeployService {
     public void start() throws FileNotFoundException, IOException {
-        String COMMA_DELIMITER = ";";
+        String COMMA_DELIMITER = ",";
 
         List<List<String>> records = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\csv-db\\MOCK_DATA.csv"))){
@@ -23,7 +23,10 @@ public class DeployService {
             records.add(Arrays.asList(values));
         }
         }
-        System.out.println("this is the deployment service");
-        System.out.println(records);
+        System.out.println(records.get(1).get(0));
+        System.out.println(records.get(1).get(1));
+        System.out.println(records.get(1).get(2));
+        System.out.println(records.get(1).get(3));
+        System.out.println(records.get(1).get(4));
     }
 }
