@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.studentorganizer.services.DeployService;
 
-@RestController
+@Controller
 public class DeploymentController {
     
 
@@ -25,7 +25,7 @@ public static List<List<String>> records = new ArrayList<>();
         catch(Exception e){
             System.out.println("Error: " + e);
         }   
-        return "deployment";
+        return "redirect:/students";
     }
 
 }
