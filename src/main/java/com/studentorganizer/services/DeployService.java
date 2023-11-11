@@ -17,7 +17,7 @@ public class DeployService {
     public static List<Student> records = new ArrayList<>();
     public static void start() throws FileNotFoundException, IOException {
         String COMMA_DELIMITER = ",";
-        try(BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\csv-db\\MOCK_DATA.csv"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("student-organizer/src/main/resources/csv-db/MOCK_DATA.csv"))){
             String line;
                 while((line = br.readLine()) != null){
                 String[] values = line.split(COMMA_DELIMITER);
