@@ -13,12 +13,12 @@ import com.studentorganizer.services.DeployService;
 @Controller
 public class DeploymentController {
 
-    InputStream inputStream = getClass().getResourceAsStream("/MOCK_DATA.csv");
-
     @GetMapping("/")
     public String deploy(Model model) throws FileNotFoundException, IOException{
         try{
-            DeployService.start(inputStream);
+            // legacy valamiért nullpointerre fut
+            // InputStream inputStream = getClass().getResourceAsStream("/MOCK_DATA.csv");
+            DeployService.start();
         }
         catch(Exception e){
             System.out.println("Error: " + e);
