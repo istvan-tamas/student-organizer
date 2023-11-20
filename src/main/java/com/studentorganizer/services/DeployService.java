@@ -32,7 +32,7 @@ public class DeployService {
 
  //       }
         
-        try(BufferedReader br = new BufferedReader(new FileReader("/Users/tamasistvan/projects/student-organizer/src/main/resources/csv-db/MOCK_DATA.csv"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("F:\\projects\\spring-projects\\student-organizer\\src\\main\\resources\\csv-db\\MOCK_DATA.csv"))){
           String line;
                 while((line = br.readLine()) != null){
                 String[] values = line.split(COMMA_DELIMITER);
