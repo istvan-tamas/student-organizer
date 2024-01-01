@@ -59,28 +59,4 @@ public class StudenController {
         return "redirect:/students";
     }
 
-
-    @RequestMapping(value = "/list-students", method = RequestMethod.GET)
-    public String listStudents(
-                Model model,
-                @RequestParam("page") Optional<Integer> page,
-                @RequestParam("size") Optional<Integer> size) {
-            int currentPage = page.orElse(1);
-            int pageSize = size.orElse(5);
-
-            Page<Student> studentPage = studentService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
-
-            model.addAttribute("bookPage");
-
-            int totalPages = studentPage.getTotalPages();
-            if (totalPages > 0) {
-                List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-                        .boxed()
-                        .collect(Collectors.toList());
-                model.addAttribute("pageNumbers", studentNumbers);
-            }
-
-            return "list-students.html";
-        }
-
 }

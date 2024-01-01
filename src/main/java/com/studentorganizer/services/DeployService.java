@@ -18,21 +18,8 @@ public class DeployService {
     // statikusan nincsen null pointer de így az erőforrást nem mindig találja meg
     public static void start() throws FileNotFoundException, IOException {
         String COMMA_DELIMITER = ",";
-
-        // legacy, nullpointer exeption
- //       try (inputStream)
- //       {
- //           BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
- //               String line;
- //               while((line = reader.readLine()) != null)
- //               {
- //                   String[] values = line.split(COMMA_DELIMITER);
- //                   records.add(new Student(values[0], values[1], values[2],values[3],values[4],UUID.randomUUID().toString()));
- //               }
-
- //       }
         
-        try(BufferedReader br = new BufferedReader(new FileReader("F:\\projects\\spring-projects\\student-organizer\\src\\main\\resources\\csv-db\\MOCK_DATA.csv"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/csv-db/MOCK_DATA.csv"))){
           String line;
                 while((line = br.readLine()) != null){
                 String[] values = line.split(COMMA_DELIMITER);
