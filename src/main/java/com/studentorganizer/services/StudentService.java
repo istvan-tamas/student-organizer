@@ -59,9 +59,10 @@ public class StudentService implements StudentCRUDInterface {
 
     // ez már nem teljesen CRUD interfész, külön interfészbe kellene rakni, vagy maradjon így?
 
+
     public Page<Student> findPaginated(Pageable pageable) {
-        int pageSize = pageable.getPageSize();
-        int currentPage = pageable.getPageNumber();
+        int pageSize = pageable.getDefaultPageSize();
+        int currentPage = pageable.getDefaultPageSize();
         int startItem = currentPage * pageSize;
         List<Student> list;
 
