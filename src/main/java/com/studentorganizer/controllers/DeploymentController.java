@@ -14,8 +14,6 @@ public class DeploymentController {
     @GetMapping("/")
     public String deploy(Model model) throws FileNotFoundException, IOException{
         try{
-            // legacy valamiért nullpointerre fut
-            // InputStream inputStream = getClass().getResourceAsStream("/MOCK_DATA.csv");
             DeployService.start();
         }
         catch(Exception e){

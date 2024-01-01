@@ -14,6 +14,6 @@ public interface StudentCRUDInterface {
 
     public String deleteStudent(String id);
 
-    public Student getStudentbyId(String id);
+    public Student getStudentById(String id);
 
 }

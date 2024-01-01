@@ -1,7 +1,6 @@
 package com.studentorganizer.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +9,9 @@ import com.studentorganizer.models.Student;
 import com.studentorganizer.models.DTO.StudentDTO;
 import com.studentorganizer.services.StudentService;
 
-import java.util.Optional;
-
 
 @Controller
-public class StudenController {
+public class StudentController {
     
     @Autowired
     private StudentService studentService;
@@ -41,7 +38,7 @@ public class StudenController {
 
     @GetMapping("/update-student/{id}")
     public String showUpdateStudent(Model model, Student student, @PathVariable String id){
-        model.addAttribute("student", studentService.getStudentbyId(id));
+        model.addAttribute("student", studentService.getStudentById(id));
         return "update-student" ;
     }
 

@@ -15,7 +15,7 @@ import com.studentorganizer.models.Student;
 @Service
 public class DeployService {
     public static List<Student> records = new ArrayList<>();
-    // statikusan nincsen null pointer de így az erőforrást nem mindig találja meg
+
     public static void start() throws FileNotFoundException, IOException {
         String COMMA_DELIMITER = ",";
         
