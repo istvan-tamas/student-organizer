@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>SMS - Student Management System</title>
+
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+    />
+    <style>
+        #students {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #students td,
+        #students th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #students tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #students th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04aa6d;
+            color: white;
+        }
+        .btn {
+            margin: 1em 0.7em;
+        }
+    </style>
+</head>
+
+<body>
+
+<table id="students">
+    <tbody>
+    <tr th:each="student, iStat : ${students.content}"
+        th:style="${iStat.odd}? 'font-weight: bold;'"
+        th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <td th:text="${student.neptune}" />
+        <td th:text="${student.firstName}" />
+        <td th:text="${student.lastName}" />
+        <td th:text="${student.major}" />
+        <td th:text="${student.educationType}" />
+    </tr>
+    </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item" th:classappend="${students.getPageNumber() == 0 ? 'disabled' : ''}">
+            <a class="page-link" th:href="@{/students(pageNumber=0)}">First</a>
+        </li>
+        <li class="page-item" th:classappend="${students.getPageNumber() == 0 ? 'disabled' : ''}">
+            <a class="page-link" th:href="@{/students(pageNumber=${students.getPageNumber() - 1})}">Previous</a>
+        </li>
+        <li class="page-item" th:each="i : ${#numbers.sequence(0, students.totalPages - 1)}"
+            th:classappend="${students.getPageNumber() == i ? 'active' : ''}">
+            <a class="page-link" th:href="@{/students(pageNumber=${i})}" th:text="${i + 1}"></a>
+        </li>
+        <li class="page-item" th:classappend="${students.getPageNumber() == students.totalPages - 1 ? 'disabled' : ''}">
+            <a class="page-link" th:href="@{/students(pageNumber=${students.getPageNumber() + 1})}">Next</a>
+        </li>
+        <li class="page-item" th:classappend="${students.getPageNumber() == students.totalPages - 1 ? 'disabled' : ''}">
+            <a class="page-link" th:href="@{/students(pageNumber=${students.totalPages - 1})}">Last</a>
+        </li>
+    </ul>
+</nav>
+
+
+
+
+
+</body>
+</html>
