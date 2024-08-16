@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class StudentServiceImp implements StudentCRUDInterface {
 
     @Override
     public StudentResponse getAllStudents(int pageNumber, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.Direction.ASC, "id");
         Page<Student> students = studentRepo.findAll(pageable);
         List<Student> listOfStudents = students.getContent();
         List<StudentDTO> content = listOfStudents.stream().map(s -> mapToDTO(s)).collect(Collectors.toList());
