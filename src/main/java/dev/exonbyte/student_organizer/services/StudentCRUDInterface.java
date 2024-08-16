@@ -7,7 +7,7 @@ public interface StudentCRUDInterface {
     StudentDTO createStudent(StudentDTO studentDTO);
     StudentResponse getAllStudents(int pageNumber, int pageSize);
     StudentDTO getStudentById(int id);
-    StudentDTO updateStudent(int id, StudentDTO studentDTO);
+    void updateStudent(int id, StudentDTO studentDTO);
     void deleteStudentById(int id);
     void deleteAllStudents();
 }

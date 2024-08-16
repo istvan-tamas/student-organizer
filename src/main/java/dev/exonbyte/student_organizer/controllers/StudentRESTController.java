@@ -22,7 +22,7 @@ public class StudentRESTController {
     @GetMapping("/students")
     public ResponseEntity<StudentResponse> getAllStudents(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
-            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize
+            @RequestParam(value = "pageSize", defaultValue = "25", required = false) int pageSize
     )
     {
         return new ResponseEntity<>(studentService.getAllStudents(pageNumber, pageSize), HttpStatus.OK);

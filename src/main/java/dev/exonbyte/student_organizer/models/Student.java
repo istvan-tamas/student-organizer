@@ -21,15 +21,13 @@ public class Student extends AbstractStudent {
     private String lastName;
     private String major;
     private String educationType;
-    private String uuid;
 
-    public Student(String neptune, String firstName, String lastName, String major, String educationType, String uuid) {
+    public Student(String neptune, String firstName, String lastName, String major, String educationType) {
         this.neptune = neptune;
         this.firstName = firstName;
         this.lastName = lastName;
         this.major = major;
         this.educationType = educationType;
-        this.uuid = uuid;
     }
 }
 

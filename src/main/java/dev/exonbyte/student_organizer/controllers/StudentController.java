@@ -21,10 +21,10 @@ public class StudentController {
     @RequestMapping(value = "/students", method = RequestMethod.GET)
     public String showAllStudents(Model model,
                                   @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Optional<Integer> page,
-                                  @RequestParam(value = "pageSize", defaultValue = "5", required = false) Optional<Integer> size
+                                  @RequestParam(value = "pageSize", defaultValue = "25", required = false) Optional<Integer> size
     ) {
         int pageNumber = page.orElse(0);
-        int pageSize = size.orElse(10);
+        int pageSize = size.orElse(25);
 
         StudentResponse students = studentService.getAllStudents(pageNumber, pageSize);
 

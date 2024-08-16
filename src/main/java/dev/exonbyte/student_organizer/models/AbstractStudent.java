@@ -7,5 +7,4 @@ public abstract class AbstractStudent {
     private String lastName;
     private String major;
     private String educationType;
-    private String uuid;
 }

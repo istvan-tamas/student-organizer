@@ -59,11 +59,10 @@ public class StudentServiceImp implements StudentCRUDInterface {
     }
 
     @Override
-    public StudentDTO updateStudent(int id, StudentDTO studentDTO) {
+    public void updateStudent(int id, StudentDTO studentDTO) {
         Student student = studentRepo.findById(id).orElseThrow(() -> new StudentNotFoundException("Student not found, could not be updated"));
         student = mapToStudent(studentDTO);
         Student updatedStudent = studentRepo.save(student);
-        return mapToDTO(updatedStudent);
     }
 
 
@@ -87,7 +86,6 @@ public class StudentServiceImp implements StudentCRUDInterface {
         studentDTO.setLastName(student.getLastName());
         studentDTO.setMajor(student.getMajor());
         studentDTO.setEducationType(student.getEducationType());
-        studentDTO.setUuid(student.getUuid());
 
         return studentDTO;
     }
@@ -100,7 +98,6 @@ public class StudentServiceImp implements StudentCRUDInterface {
         student.setLastName(studentDTO.getLastName());
         student.setMajor(studentDTO.getMajor());
         student.setEducationType(studentDTO.getEducationType());
-        student.setUuid(studentDTO.getUuid());
         return student;
     }
 }
