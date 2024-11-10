@@ -1,0 +1,54 @@
+.add-student-container {
+    width: 800px;
+    margin: auto;
+  }
+
+  .add-student-header {
+    margin: 1em;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .add-student-title {
+    font-size: 1.5em;
+    margin: 1em 0;
+  }
+
+  .add-student-form {
+    margin-top: 1em;
+  }
+
+  .form-control {
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  .form-select {
+    margin-bottom: 1em;
+  }
+
+  .add-student-button {
+    width: 150px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  .add-student-button:hover {
+    background-color: #138496;
+  }
+
+  .back-link {
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+    color: #17a2b8;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: #138496;
+  }

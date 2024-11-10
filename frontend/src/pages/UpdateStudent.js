@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import './UpdateStudent.css';
+
+
 const UpdateStudent = () => {
   const { id } = useParams(); // Assume the student ID is passed as a URL parameter
   const [student, setStudent] = useState({
