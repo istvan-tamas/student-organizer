@@ -2,10 +2,11 @@
 
 ## Backend
 
+...
 
 ## Frontend
 
-### Docker container
+### Running with Docker container
 
 To access frontend using Docker, in the `frontend` directory, you can run:
 
@@ -16,7 +17,7 @@ docker run -p 3000:80 frontend
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Without Docker
+### Running without Docker
 
 To access frontend, in the `frontend` directory, you can run:
 

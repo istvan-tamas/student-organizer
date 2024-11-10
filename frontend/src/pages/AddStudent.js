@@ -86,7 +86,7 @@ const AddStudent = () => {
 
       <hr />
 
-      <a href="/students">Back to Student List</a>
+      <a href="/">Back to Student List</a>
     </div>
   );
 };
