@@ -46,8 +46,8 @@ const UpdateStudent = () => {
     console.log('Updated student data:', student);
 
     try {
-      const response = await fetch('http://localhost:5001/api/update', {
-        method: 'POST',
+      const response = await fetch(`http://localhost:5001/api/students/${id}/update`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
