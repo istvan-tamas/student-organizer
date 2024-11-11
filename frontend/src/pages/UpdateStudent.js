@@ -13,6 +13,7 @@ const UpdateStudent = () => {
     major: 'Computer Science',
     educationType: 'Full Time',
   });
+  const [message, setMessage] = useState(''); // State for success or failure message
 
   useEffect(() => {
     // Fetch existing student data by ID and populate the form fields
@@ -59,8 +60,13 @@ const UpdateStudent = () => {
 
       const data = await response.json();
       console.log('Response from server:', data);
+
+      // Set success message on successful response
+      setMessage('Student updated successfully!');
     } catch (error) {
       console.error('Error updating student:', error);
+      // Set failure message on error
+      setMessage('Failed to update student. Please try again.');
     }
   };
 
@@ -126,6 +132,13 @@ const UpdateStudent = () => {
           Update Student
         </button>
       </form>
+
+      {/* Display the success or failure message */}
+      {message && (
+        <div className={`alert ${message.includes('successfully') ? 'alert-success' : 'alert-danger'} mt-4`}>
+          {message}
+        </div>
+      )}
 
       <hr />
 

@@ -10,6 +10,7 @@ const AddStudent = () => {
     major: 'Computer Science',
     educationType: 'Full Time',
   });
+  const [message, setMessage] = useState(''); // State for success or failure message
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,8 +39,13 @@ const AddStudent = () => {
 
       const data = await response.json();
       console.log('Response from server:', data);
+
+      // Set success message on successful response
+      setMessage('Student created successfully!');
     } catch (error) {
       console.error('Error creating student:', error);
+      // Set failure message on error
+      setMessage('Failed to create student. Please try again.');
     }
   };
 
@@ -101,6 +107,13 @@ const AddStudent = () => {
           Save Student
         </button>
       </form>
+
+      {/* Display the success or failure message */}
+      {message && (
+        <div className={`alert ${message.includes('successfully') ? 'alert-success' : 'alert-danger'} mt-4`}>
+          {message}
+        </div>
+      )}
 
       <hr />
 
