@@ -19,10 +19,28 @@ const AddStudent = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Student data submitted:', student);
-    // Submit logic here (e.g., API call)
+
+    try {
+      const response = await fetch('http://localhost:5001/api/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(student),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create student');
+      }
+
+      const data = await response.json();
+      console.log('Response from server:', data);
+    } catch (error) {
+      console.error('Error creating student:', error);
+    }
   };
 
   return (
