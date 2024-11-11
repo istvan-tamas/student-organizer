@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 
 import './UpdateStudent.css';
 
-
 const UpdateStudent = () => {
   const { id } = useParams(); // Assume the student ID is passed as a URL parameter
   const [student, setStudent] = useState({
@@ -17,7 +16,6 @@ const UpdateStudent = () => {
 
   useEffect(() => {
     // Fetch existing student data by ID and populate the form fields
-    // This is a placeholder; replace it with an API call if needed.
     const fetchStudentData = async () => {
       // Simulated fetch. Replace with actual API call.
       const fetchedData = {
@@ -42,10 +40,28 @@ const UpdateStudent = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Updated student data:', student);
-    // Add update logic here, e.g., API call to update student by ID
+
+    try {
+      const response = await fetch('http://localhost:5001/api/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(student),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update student');
+      }
+
+      const data = await response.json();
+      console.log('Response from server:', data);
+    } catch (error) {
+      console.error('Error updating student:', error);
+    }
   };
 
   return (
