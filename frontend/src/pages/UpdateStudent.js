@@ -16,10 +16,10 @@ const UpdateStudent = () => {
   const [message, setMessage] = useState(''); // State for success or failure message
 
 useEffect(() => {
-  // Fetch existing student data by ID and populate the form fields
+
   const fetchStudentData = async () => {
     try {
-      const response = await fetch(`http://193.224.23.42:5001/api/students/${id}`, {
+      const response = await fetch(`http://localhost:5001/api/students/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ useEffect(() => {
     console.log('Updated student data:', student);
 
     try {
-      const response = await fetch(`http://193.224.23.42:5001/api/students/${id}/update`, {
+      const response = await fetch(`http://localhost:5001/api/students/${id}/update`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

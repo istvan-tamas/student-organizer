@@ -28,7 +28,7 @@ const AddStudent = () => {
     console.log('Student data submitted:', student);
 
     try {
-      const response = await fetch('http://193.224.23.42:5001/api/students/create', {
+      const response = await fetch('http://localhost:5001/api/students/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
