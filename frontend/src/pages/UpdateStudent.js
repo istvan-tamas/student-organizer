@@ -15,23 +15,32 @@ const UpdateStudent = () => {
   });
   const [message, setMessage] = useState(''); // State for success or failure message
 
-  useEffect(() => {
-    // Fetch existing student data by ID and populate the form fields
-    const fetchStudentData = async () => {
-      // Simulated fetch. Replace with actual API call.
-      const fetchedData = {
-        id,
-        neptune: 'existingNeptuneCode',
-        firstName: 'John',
-        lastName: 'Doe',
-        major: 'Computer Science',
-        educationType: 'Full Time',
-      };
-      setStudent(fetchedData);
-    };
+useEffect(() => {
+  // Fetch existing student data by ID and populate the form fields
+  const fetchStudentData = async () => {
+    try {
+      const response = await fetch(`http://193.224.23.42:5001/api/students/${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    fetchStudentData();
-  }, [id]);
+      if (!response.ok) {
+        console.error('Response status:', response.status);
+        throw new Error('Failed to fetch student data');
+      }
+
+      const fetchedData = await response.json();
+      setStudent(fetchedData);
+    } catch (error) {
+      console.error('Error fetching student data:', error);
+    }
+  };
+
+  fetchStudentData();
+}, [id]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,7 +55,7 @@ const UpdateStudent = () => {
     console.log('Updated student data:', student);
 
     try {
-      const response = await fetch(`http://localhost:5001/api/students/${id}/update`, {
+      const response = await fetch(`http://193.224.23.42:5001/api/students/${id}/update`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

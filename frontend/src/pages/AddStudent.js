@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 
 import './AddStudent.css';
 
+const getRandomId = () => Math.floor(Math.random() * 100000);
+
 const AddStudent = () => {
   const [student, setStudent] = useState({
+    id: getRandomId(),
     neptune: '',
     firstName: '',
     lastName: '',
@@ -25,7 +28,7 @@ const AddStudent = () => {
     console.log('Student data submitted:', student);
 
     try {
-      const response = await fetch('http://localhost:5001/api/students/create', {
+      const response = await fetch('http://193.224.23.42:5001/api/students/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,6 +59,14 @@ const AddStudent = () => {
       <h2>Create a new student entry</h2>
 
       <form onSubmit={handleSubmit}>
+      <input
+          type="text"
+          name="id"
+          placeholder="ID"
+          className="form-control mb-4 col-4"
+          value={student.id}
+          onChange={handleChange}
+        />
         <input
           type="text"
           name="neptune"

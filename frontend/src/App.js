@@ -9,14 +9,14 @@ function App() {
       <div>
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/add-student" style={{ marginLeft: '10px' }}>Add Student</Link>
-          <Link to="/update-student/1" style={{ marginLeft: '10px' }}>Update Student</Link> {/* Example link */}
+          <Link to="/student/create" style={{ marginLeft: '10px' }}>Add Student</Link>
+          <Link to="/student/update" style={{ marginLeft: '10px' }}>Update Student</Link> {/* Example link */}
         </nav>
 
         <Routes>
           <Route path="/" element={<h1>Welcome to the Home Page</h1>} />
-          <Route path="/add-student" element={<AddStudent />} />
-          <Route path="/update-student/:id" element={<UpdateStudent />} />
+          <Route path="/student/create" element={<AddStudent />} />
+          <Route path="/student/update/:id" element={<UpdateStudent />} />
         </Routes>
       </div>
     </Router>
