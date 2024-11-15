@@ -117,16 +117,16 @@ export const StuedentList = () => {
             <tr key={student.id}>
               <td style={{ border: "1px solid black", padding: "8px" }}>{student.id}</td>
               <td style={{ border: "1px solid black", padding: "8px" }}>
-                {student.first_name}
+                {student.firstName}
               </td>
               <td style={{ border: "1px solid black", padding: "8px" }}>
-                {student.last_name}
+                {student.lastName}
               </td>
               <td style={{ border: "1px solid black", padding: "8px" }}>
                 {student.major}
               </td>
               <td style={{ border: "1px solid black", padding: "8px" }}>
-                {student.education_type}
+                {student.educationType}
               </td>
               <td style={{ border: "1px solid black", padding: "8px" }}>
                 {student.neptune}
