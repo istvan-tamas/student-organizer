@@ -135,7 +135,7 @@ export const StuedentList = () => {
                 <button
                   onClick={() => {
                     setStudents(students.filter((s) => s.id !== student.id));
-                    deleteStudent();
+                    deleteStudent(student.id);
                   }}
                   style={{
                     padding: "5px 10px",
