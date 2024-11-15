@@ -57,27 +57,29 @@ export const StuedentList = () => {
   const [students, setStudents] = useState([]);
 
   async function deleteStudent(studentId) {
-    // await fetch(
-    //   fetch("http://193.224.23.42:5001/api/students/" + studentId, {
-    //     method: "DELETE",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    // );
+    await fetch(
+      fetch(`http://localhost:5001/api/students/${studentId}/delete`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    );
   }
 
   async function fetchStudents() {
-    // const res = await fetch("http://193.224.23.42:5001/api/students?pageNumber=0&pageSize=1000", {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
-    // const resp = await res.json();
-
-    // const data = resp.data;
-    setStudents(mockStudents);
+    const res = await fetch(
+      "http://localhost:5001/api/students?pageNumber=0&pageSize=1000",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await res.json();
+    console.log("Response from server:", data);
+    setStudents(data);
   }
   useEffect(() => {
     (async () => {
