@@ -79,7 +79,7 @@ export const StuedentList = () => {
     );
     const data = await res.json();
     console.log("Response from server:", data);
-    setStudents(data);
+    setStudents(data.content);
   }
   useEffect(() => {
     (async () => {
