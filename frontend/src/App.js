@@ -1,7 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import AddStudent from './pages/AddStudent';
-import UpdateStudent from './pages/UpdateStudent';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import AddStudent from "./pages/AddStudent";
+import UpdateStudent from "./pages/UpdateStudent";
+import { StuedentList } from "./StudentList";
 
 function App() {
   return (
@@ -9,12 +10,13 @@ function App() {
       <div>
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/student/create" style={{ marginLeft: '10px' }}>Add Student</Link>
-          <Link to="/student/update" style={{ marginLeft: '10px' }}>Update Student</Link> {/* Example link */}
+          <Link to="/student/create" style={{ marginLeft: "10px" }}>
+            Add Student
+          </Link>
         </nav>
 
         <Routes>
-          <Route path="/" element={<h1>Welcome to the Home Page</h1>} />
+          <Route path="/" element={<StuedentList />} />
           <Route path="/student/create" element={<AddStudent />} />
           <Route path="/student/update/:id" element={<UpdateStudent />} />
         </Routes>
