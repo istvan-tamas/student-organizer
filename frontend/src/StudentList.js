@@ -87,7 +87,7 @@ export const StuedentList = () => {
     })();
   }, []);
   const [currentPage, setCurrentPage] = useState(1);
-  const studentsPerPage = 2;
+  const studentsPerPage = 20;
 
   const indexOfLastStudent = currentPage * studentsPerPage;
   const indexOfFirstStudent = indexOfLastStudent - studentsPerPage;
